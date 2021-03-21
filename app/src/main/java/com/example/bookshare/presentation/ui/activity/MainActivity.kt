@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.bookshare.R
+import com.example.bookshare.data.network_data_source.FirebaseDb
 import com.example.bookshare.presentation.ui.fragment.HomeFragment
 import com.example.bookshare.presentation.ui.fragment.ProfileFragment
 import com.example.bookshare.presentation.ui.fragment.book_view.BookMainFragment
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         setupBottomNavBar()
+        val db = FirebaseDb()
+        db.init()
+        db.addUser("1", "test", "test")
     }
 
     private fun changeFragment(fragmentObject: Fragment) {
