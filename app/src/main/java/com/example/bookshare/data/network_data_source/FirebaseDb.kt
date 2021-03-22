@@ -9,18 +9,12 @@ import com.google.firebase.ktx.Firebase
 
 class FirebaseDb {
 
-    private lateinit var database: DatabaseReference
+    fun addUser(login: String, password: String){
+        // Write a message to the database
+        val database = Firebase.database
+        val myRef = database.getReference("message")
 
-    fun init(){
-        database = Firebase.database.reference
-    }
-
-
-    fun addUser(userId: String, login: String, email: String){
-        val user = User(login, email)
-        database.child("users").child(userId).setValue(user).addOnSuccessListener {
-            Log.d(TAG, "addUser: {$it}")
-        }
+        myRef.setValue("Hello, World!")
     }
 
 

@@ -5,11 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bookshare.R
 import com.example.bookshare.data.disk_data_source.Book
+import com.example.bookshare.data.disk_data_source.User
+import com.example.bookshare.data.network_data_source.FirebaseDb
 import com.example.bookshare.databinding.HomeFragmentBinding
 import com.example.bookshare.presentation.ui.adapters.NewBookAdapter
 import kotlinx.android.synthetic.main.home_fragment.view.*
@@ -42,6 +45,12 @@ class HomeFragment: Fragment() {
         adapter = NewBookAdapter(list)
         view.new_books.layoutManager = LinearLayoutManager(context)
         view.new_books.adapter = adapter
+        val btn = view.add
+        btn.setOnClickListener{
+            val db = FirebaseDb()
+            db.addUser("Test", "Test")
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

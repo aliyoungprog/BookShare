@@ -1,5 +1,6 @@
 {
   "project_info": {
+    "firebase_url": "https://book-share-b8966-default-rtdb.firebaseio.com",
     "project_number": "425446165445",
     "project_id": "book-share-b8966",
     "storage_bucket": "book-share-b8966.appspot.com"
