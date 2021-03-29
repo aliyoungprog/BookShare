@@ -4,8 +4,10 @@
     <string name="books">Мои книги</string>
     <string name="profile">Профиль</string>
     <string name="books_description">Books description</string>
-    <string name = "available_books">Доступные книги</string>
+    <string name="available_books">Доступные книги</string>
     <string name="want_to_read">Хочу прочесть</string>
     <string name="read">Прочитанные</string>
     <string name="profile_avatar">profile_avatar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

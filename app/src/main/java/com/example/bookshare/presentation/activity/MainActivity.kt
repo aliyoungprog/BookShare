@@ -1,15 +1,13 @@
-package com.example.bookshare.presentation.ui.activity
+package com.example.bookshare.presentation.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.bookshare.R
-import com.example.bookshare.data.network_data_source.FirebaseDb
-import com.example.bookshare.presentation.ui.fragment.HomeFragment
-import com.example.bookshare.presentation.ui.fragment.ProfileFragment
-import com.example.bookshare.presentation.ui.fragment.book_view.BookMainFragment
+import com.example.bookshare.presentation.fragment.HomeFragment
+import com.example.bookshare.presentation.fragment.ProfileFragment
+import com.example.bookshare.presentation.fragment.book_view.BookMainFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

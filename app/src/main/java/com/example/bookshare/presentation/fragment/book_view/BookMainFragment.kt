@@ -1,15 +1,12 @@
-package com.example.bookshare.presentation.ui.fragment.book_view
+package com.example.bookshare.presentation.fragment.book_view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.bookshare.R
 import com.example.bookshare.databinding.BooksFragmentViewPagerBinding

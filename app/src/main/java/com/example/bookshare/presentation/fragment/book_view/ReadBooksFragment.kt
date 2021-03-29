@@ -1,4 +1,4 @@
-package com.example.bookshare.presentation.ui.fragment.book_view
+package com.example.bookshare.presentation.fragment.book_view
 
 import android.os.Bundle
 import android.view.LayoutInflater
