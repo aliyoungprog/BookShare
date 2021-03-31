@@ -12,9 +12,9 @@ class ReadBooksFragment : Fragment() {
     lateinit var bind: ReadBooksFragmentBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         bind = ReadBooksFragmentBinding.inflate(inflater)
         return bind.root

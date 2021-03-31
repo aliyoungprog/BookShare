@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
 class BookViewModel(private val repositoryImpl: BookRepositoryImpl): ViewModel() {
     // Can talk only with repository
     val booksLiveData = MutableLiveData<List<Book>>()
-    val bookByName = MutableLiveData<Book>()
     fun getAllBooks(){
         viewModelScope.launch {
             try{

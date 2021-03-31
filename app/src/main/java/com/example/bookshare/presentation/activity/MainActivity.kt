@@ -1,18 +1,16 @@
 package com.example.bookshare.presentation.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.bookshare.R
 import com.example.bookshare.presentation.fragment.HomeFragment
 import com.example.bookshare.presentation.fragment.ProfileFragment
-import com.example.bookshare.presentation.fragment.book_view.BookMainFragment
+import com.example.bookshare.presentation.fragment.AddBookMainFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
-    lateinit var actionBar: ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +38,9 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(HomeFragment.getInstance())
                     supportActionBar?.setTitle(this.getString(R.string.available_books))
                 }
-                R.id.action_books -> {
-                    changeFragment(BookMainFragment.getInstance())
-                    supportActionBar?.setTitle(this.getString(R.string.books))
+                R.id.add_book -> {
+                    changeFragment(AddBookMainFragment.getInstance())
+                    supportActionBar?.setTitle("Добавить книгу")
                 }
                 R.id.action_profile -> {
                     changeFragment(ProfileFragment.getInstance())
@@ -52,4 +50,5 @@ class MainActivity : AppCompatActivity() {
             return@setOnNavigationItemSelectedListener true
         }
     }
+
 }

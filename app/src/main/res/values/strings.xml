@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BookShare</string>
+    <string name="app_name">Книжные волны</string>
     <string name="main">Главная</string>
     <string name="books">Мои книги</string>
     <string name="profile">Профиль</string>
@@ -10,4 +10,15 @@
     <string name="profile_avatar">profile_avatar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_books">Мои книги</string>
+    <string name="my_friends">Мои друзья</string>
+    <string name="settings">Настройки</string>
+    <string name="user_name">Имя пользователя</string>
+    <string name="number_of_books">3 книги</string>
+    <string name="instagram_placeholder">Instagram: @Test</string>
+    <string name="telegram_placeholder">Telegram: @Test</string>
+    <string name="add_book">Добавить</string>
+    <string name="book_image">фото книги</string>
+    <string name="add_book_text">Добавить!</string>
+    <string name="add_book_fragment_book_name">Название книги</string>
 </resources>

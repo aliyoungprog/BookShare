@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BookShare">
+        android:theme="@style/BookShare">
 
         <activity
             android:name="com.example.bookshare.presentation.activity.MainActivity"
