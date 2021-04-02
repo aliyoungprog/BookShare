@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
@@ -17,8 +16,11 @@ import com.example.bookshare.databinding.HomeFragmentBinding
 import com.example.bookshare.domain.entity.Book
 import com.example.bookshare.presentation.adapters.ItemClickListener
 import com.example.bookshare.presentation.adapters.NewBookAdapter
-import com.example.bookshare.presentation.vm.BookViewModel
+import com.example.bookshare.presentation.vm.AllBooksViewModel
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.home_fragment.view.*
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment(), ItemClickListener {
 
@@ -26,7 +28,7 @@ class HomeFragment: Fragment(), ItemClickListener {
     // Ideally fragments should be self contained
 
     lateinit var adapter: NewBookAdapter
-    private val bookViewModel = BookViewModel(BookRepositoryImpl())
+    private val bookViewModel by viewModel<AllBooksViewModel>()
     lateinit var binding: HomeFragmentBinding
 
     companion object{
@@ -67,7 +69,6 @@ class HomeFragment: Fragment(), ItemClickListener {
     override fun onItemClicked(book: Book) {
         setUpBundle(book)
         val transaction = activity?.supportFragmentManager?.beginTransaction()
-        Log.d("test", "onItemClicked: $transaction")
         transaction?.replace(R.id.nav_host_fragment, BookDescriptionFragment.newInstance())
         transaction?.commit()
     }

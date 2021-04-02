@@ -43,24 +43,24 @@
                 android:textStyle="bold" />
 
 
-<!--            There should be direct links to social network-->
-<!--            <LinearLayout-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:orientation="vertical"-->
-<!--                android:id="@+id/social"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
+            <!--            There should be direct links to social network-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:id="@+id/social"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
 
-<!--                <TextView-->
-<!--                    android:text="@string/instagram_placeholder"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"/>-->
+            <!--                <TextView-->
+            <!--                    android:text="@string/instagram_placeholder"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"/>-->
 
-<!--                <TextView-->
-<!--                    android:text="@string/telegram_placeholder"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"/>-->
-<!--            </LinearLayout>-->
+            <!--                <TextView-->
+            <!--                    android:text="@string/telegram_placeholder"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"/>-->
+            <!--            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/books_info_linear_layout"
@@ -96,7 +96,7 @@
                 android:background="@color/grey" />
 
             <Button
-                android:id="@+id/outlinedButton"
+                android:id="@+id/bnt_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

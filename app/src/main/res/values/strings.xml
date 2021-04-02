@@ -21,4 +21,13 @@
     <string name="book_image">фото книги</string>
     <string name="add_book_text">Добавить!</string>
     <string name="add_book_fragment_book_name">Название книги</string>
+    <string name="user_login">ЛОГИН</string>
+    <string name="user_password">ПАРОЛЬ</string>
+    <string name="registration_button">Регистрация</string>
+    <string name="user_email">ПОЧТА</string>
+    <string name="telegram_account">ТЕЛЕГРАМ АККАУНТ</string>
+    <string name="user_instagram">ИНСТАГРАМ АККАУНТ</string>
+    <string name="btn_logout">Выйти</string>
+    <string name="btn_login">Войти</string>
+    <string name="create_account">Создать аккаунт</string>
 </resources>

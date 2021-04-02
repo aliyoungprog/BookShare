@@ -1,5 +1,6 @@
 package com.example.bookshare.presentation.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,17 +12,22 @@ import androidx.viewpager.widget.ViewPager
 import com.example.bookshare.R
 import com.example.bookshare.databinding.HomeFragmentBinding
 import com.example.bookshare.databinding.ProfileFragmentBinding
+import com.example.bookshare.presentation.activity.LoginActivity
+import com.example.bookshare.presentation.activity.MainActivity
+import com.example.bookshare.presentation.activity.RegistrationActivity
+import com.example.bookshare.presentation.adapters.PagerAdapter
 import com.example.bookshare.presentation.fragment.book_view.ReadBooksFragment
 import com.example.bookshare.presentation.fragment.book_view.WantToReadBooksFragment
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.books_fragment_view_pager.*
 
 class ProfileFragment: Fragment() {
 
-
     private lateinit var pagerAdapter: PagerAdapter
     private lateinit var viewPager: ViewPager
     private lateinit var bind: ProfileFragmentBinding
+
     companion object{
         fun getInstance() = ProfileFragment()
     }
@@ -39,6 +45,7 @@ class ProfileFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTabs()
         setUpViewPager()
+        settingsBtnListener()
     }
 
     private fun setupTabs(){
@@ -71,7 +78,6 @@ class ProfileFragment: Fragment() {
 
         })
 
-
         bind.fragmentMainTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.position?.let {
@@ -89,18 +95,18 @@ class ProfileFragment: Fragment() {
 
         })
     }
-}
-class PagerAdapter  (fm: FragmentManager) : FragmentPagerAdapter(fm){
-    override fun getCount() = 2
 
-    override fun getItem(position: Int): Fragment {
-        if (position == 1)
-            return ReadBooksFragment()
-        return WantToReadBooksFragment()
+    private fun changeFragment(fragmentObject: Fragment) {
+        val fragmentManager = activity?.supportFragmentManager?.beginTransaction()
+        fragmentManager?.replace(R.id.nav_host_fragment, fragmentObject)
+        fragmentManager?.commit()
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return "OBJECT ${(position + 1)}"
+    private fun settingsBtnListener(){
+        bind.bntSettings.setOnClickListener {
+            changeFragment(SettingsFragment.getInstance())
+        }
     }
 }
+
 
