@@ -11,6 +11,7 @@ import com.example.bookshare.domain.entity.User
 import com.google.firebase.firestore.FieldValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class BookRepositoryImpl: BookRepository {
 
@@ -29,8 +30,8 @@ class BookRepositoryImpl: BookRepository {
         }
     }
 
-    override suspend fun addBookToAll(context: Context?, book: Book, sender: String) {
-        FirestoreDb.db_firestore.collection("books").document(sender)
+    override suspend fun addBookToAll(context: Context?, book: Book, id: UUID) {
+        FirestoreDb.db_firestore.collection("books").document(id.toString())
             .set(book).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show()
@@ -42,7 +43,7 @@ class BookRepositoryImpl: BookRepository {
 
 
     override suspend fun addBookToUser(book: Book, sender: String) {
-            FirestoreDb.db_firestore.collection("users").document(sender)
+            FirestoreDb.db_firestore.collection("users").document()
                 .update("myBooks", FieldValue.arrayUnion(book))
     }
 

@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class AddBookMainFragment : Fragment() {
 
@@ -59,15 +60,16 @@ class AddBookMainFragment : Fragment() {
                 //Log.d("coroutines", "coroutine scope")
                 val book = Book(name = bookName.text.toString(), author = bookAuthor.text.toString(), sender = email)
                 bind.addBookProgress.visibility = View.VISIBLE
-                addBookToAll(context = context, book = book, sender = email)
+                val id = UUID.randomUUID()
+                addBookToAll(context = context, book = book, id = id)
                 addBookToUser(book)
                 bind.addBookProgress.visibility = View.GONE
             }
         }
     }
 
-    private fun addBookToAll(context: Context?, book: Book, sender: String){
-        bookViewModel.insertBookToAll(context, book, sender)
+    private fun addBookToAll(context: Context?, book: Book, id: UUID){
+        bookViewModel.insertBookToAll(context, book, id)
     }
 
     private fun addBookToUser(book: Book){

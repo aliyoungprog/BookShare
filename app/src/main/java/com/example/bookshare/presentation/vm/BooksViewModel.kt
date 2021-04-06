@@ -11,6 +11,7 @@ import com.example.bookshare.domain.entity.Book
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 
 class BooksViewModel(val repositoryImpl: BookRepositoryImpl): ViewModel() {
@@ -31,10 +32,10 @@ class BooksViewModel(val repositoryImpl: BookRepositoryImpl): ViewModel() {
         }
     }
 
-    fun insertBookToAll(context: Context?, book: Book, sender: String){
+    fun insertBookToAll(context: Context?, book: Book, id: UUID){
         viewModelScope.launch {
             //Log.d("coroutine", "viewModelScope")
-            repositoryImpl.addBookToAll(context, book, sender)
+            repositoryImpl.addBookToAll(context, book, id)
         }
     }
 
