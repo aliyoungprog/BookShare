@@ -30,4 +30,5 @@
     <string name="btn_logout">Выйти</string>
     <string name="btn_login">Войти</string>
     <string name="create_account">Создать аккаунт</string>
+    <string name="user_account">АККАУНТ</string>
 </resources>

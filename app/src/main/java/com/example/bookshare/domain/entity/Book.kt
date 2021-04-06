@@ -5,5 +5,6 @@ data class Book (
     val author: String? = null,
     val book_img: String? = null,
     val description: String? = null,
-    val genre: String? = null
+    val genre: String? = null,
+    val sender: String? = null
     )

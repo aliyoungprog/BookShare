@@ -1,32 +1,27 @@
 package com.example.bookshare.presentation.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
 import com.example.bookshare.R
-import com.example.bookshare.databinding.HomeFragmentBinding
+import com.example.bookshare.data.database.MyFirebaseAuth
 import com.example.bookshare.databinding.ProfileFragmentBinding
-import com.example.bookshare.presentation.activity.LoginActivity
-import com.example.bookshare.presentation.activity.MainActivity
-import com.example.bookshare.presentation.activity.RegistrationActivity
 import com.example.bookshare.presentation.adapters.PagerAdapter
-import com.example.bookshare.presentation.fragment.book_view.ReadBooksFragment
-import com.example.bookshare.presentation.fragment.book_view.WantToReadBooksFragment
+import com.example.bookshare.presentation.vm.UserViewModel
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.books_fragment_view_pager.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment: Fragment() {
 
     private lateinit var pagerAdapter: PagerAdapter
     private lateinit var viewPager: ViewPager
     private lateinit var bind: ProfileFragmentBinding
+    private val userViewModel by viewModel<UserViewModel>()
 
     companion object{
         fun getInstance() = ProfileFragment()
@@ -46,6 +41,7 @@ class ProfileFragment: Fragment() {
         setupTabs()
         setUpViewPager()
         settingsBtnListener()
+        setViewModel()
     }
 
     private fun setupTabs(){
@@ -106,6 +102,15 @@ class ProfileFragment: Fragment() {
         bind.bntSettings.setOnClickListener {
             changeFragment(SettingsFragment.getInstance())
         }
+    }
+
+    private fun setViewModel(){
+        val email = MyFirebaseAuth.db_auth.currentUser!!.email!!
+        userViewModel.getUserByEmail(email)
+        userViewModel.userLiveData.observe(viewLifecycleOwner, Observer {
+            bind.userEmail.text = it.email
+            bind.myBooksCount.text = if (it.myBooks != null) "${it.myBooks.size} книг" else "0 книг"
+        })
     }
 }
 

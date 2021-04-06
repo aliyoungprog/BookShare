@@ -13,6 +13,7 @@ class SingleBookViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         itemView.book_author.text = book.author
         itemView.book_name.text = book.name
         itemView.title_name.text = book.genre
+        itemView.book_sender.text = book.sender
         itemView.setOnClickListener{
             clickListener.onItemClicked(book)
         }
