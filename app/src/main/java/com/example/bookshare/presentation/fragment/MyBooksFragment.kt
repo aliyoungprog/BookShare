@@ -1,6 +1,7 @@
 package com.example.bookshare.presentation.fragment.book_view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,12 +50,14 @@ class MyBooksFragment : Fragment(), ItemClickListener {
     }
 
     private fun observeBooks(){
-        bind.progressBar.visibility = View.VISIBLE
-        bookViewModel.allUserBook.observe(viewLifecycleOwner, androidx.lifecycle.Observer { it ->
-            adapter = NewBookAdapter(it, this)
-            bind.myBooks.adapter = adapter
-            bind.progressBar.visibility = View.GONE
-        })
+            bind.progressBar.visibility = View.VISIBLE
+            bookViewModel.allUserBook.observe(
+                viewLifecycleOwner,
+                androidx.lifecycle.Observer { it ->
+                    adapter = NewBookAdapter(it, this)
+                    bind.myBooks.adapter = adapter
+                    bind.progressBar.visibility = View.GONE
+                })
     }
 
     override fun onItemClicked(book: Book) {

@@ -43,7 +43,7 @@ class BookRepositoryImpl: BookRepository {
 
 
     override suspend fun addBookToUser(book: Book, sender: String) {
-            FirestoreDb.db_firestore.collection("users").document()
+            FirestoreDb.db_firestore.collection("users").document(sender)
                 .update("myBooks", FieldValue.arrayUnion(book))
     }
 

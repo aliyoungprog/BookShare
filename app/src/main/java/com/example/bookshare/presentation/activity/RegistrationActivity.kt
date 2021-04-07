@@ -51,8 +51,9 @@ class RegistrationActivity : AppCompatActivity(){
         firebaseAuth.db_auth.createUserWithEmailAndPassword(mUserEmail.text.toString(), mUserPassword.text.toString()).addOnCompleteListener{
             if (it.isSuccessful){
                 Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
-                val user = User(email = mUserEmail.text.toString(), instagram_account = mUserInstagramAccount.text.toString(), telegram_account = mUserTelegramAccount.text.toString())
-                Firebase.firestore.collection("users").document(mUserEmail.text.toString()).set(user)
+                val email = mUserEmail.text.toString().toLowerCase()
+                val user = User(email = email, instagram_account = mUserInstagramAccount.text.toString(), telegram_account = mUserTelegramAccount.text.toString())
+                Firebase.firestore.collection("users").document(email).set(user)
                 startActivity(Intent(this, MainActivity::class.java))
             }else{
                 Toast.makeText(this, "Error, ${it.exception}", Toast.LENGTH_SHORT).show()

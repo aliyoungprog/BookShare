@@ -54,14 +54,14 @@ class AddBookMainFragment : Fragment() {
         bookName = bind.bookName
         bookAuthor = bind.bookAuthor
         addBookBtn = bind.addBook
-        email = firebaseAuth.currentUser?.email.toString()
+
         addBookBtn.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 //Log.d("coroutines", "coroutine scope")
+                email = firebaseAuth.currentUser?.email.toString().toLowerCase()
                 val book = Book(name = bookName.text.toString(), author = bookAuthor.text.toString(), sender = email)
                 bind.addBookProgress.visibility = View.VISIBLE
-                val id = UUID.randomUUID()
-                addBookToAll(context = context, book = book, id = id)
+                addBookToAll(context = context, book = book, id = UUID.randomUUID())
                 addBookToUser(book)
                 bind.addBookProgress.visibility = View.GONE
             }

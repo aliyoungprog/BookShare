@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bookshare.data.repository.BookRepositoryImpl
+import com.example.bookshare.domain.BookRepository
 import com.example.bookshare.domain.entity.Book
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +15,7 @@ import kotlinx.coroutines.withContext
 import java.util.*
 
 
-class BooksViewModel(val repositoryImpl: BookRepositoryImpl): ViewModel() {
+class BooksViewModel(val repository: BookRepository): ViewModel() {
     // Can talk only with repository
 
     val booksLiveData = MutableLiveData<List<Book>>()
@@ -23,7 +24,7 @@ class BooksViewModel(val repositoryImpl: BookRepositoryImpl): ViewModel() {
     fun getAllBooks(){
         viewModelScope.launch {
             try{
-                repositoryImpl.getAllBooks {
+                repository.getAllBooks {
                     booksLiveData.value = it
                 }
             }catch(e: Exception){
@@ -35,20 +36,20 @@ class BooksViewModel(val repositoryImpl: BookRepositoryImpl): ViewModel() {
     fun insertBookToAll(context: Context?, book: Book, id: UUID){
         viewModelScope.launch {
             //Log.d("coroutine", "viewModelScope")
-            repositoryImpl.addBookToAll(context, book, id)
+            repository.addBookToAll(context, book, id)
         }
     }
 
     fun insertBookToUser(book: Book){
         viewModelScope.launch {
             //Log.d("coroutine", "viewModelScope1")
-            repositoryImpl.addBookToUser(book, book.sender!!)
+            repository.addBookToUser(book, book.sender!!)
         }
     }
 
     fun getAllUserBooks(email: String){
         viewModelScope.launch {
-            repositoryImpl.getAllUserBooks(email){
+            repository.getAllUserBooks(email){
                 allUserBook.value = it
             }
         }

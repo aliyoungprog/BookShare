@@ -39,7 +39,6 @@ class SettingsFragment : Fragment() {
     private fun logout(){
         FirebaseAuth.getInstance().signOut()
         startActivity(Intent(context, LoginActivity::class.java))
-        stopKoin()
         activity?.finish()
     }
 

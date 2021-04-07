@@ -26,7 +26,7 @@ class HomeFragment: Fragment(), ItemClickListener {
     // Ideally fragments should be self contained
 
     lateinit var adapter: NewBookAdapter
-    private val bookViewModel by viewModel<BooksViewModel>()
+    private val bookViewModel: BooksViewModel by viewModel()
     lateinit var binding: HomeFragmentBinding
 
     companion object{

@@ -1,6 +1,7 @@
 package com.example.bookshare.presentation.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,7 @@ class ProfileFragment: Fragment() {
     private lateinit var pagerAdapter: PagerAdapter
     private lateinit var viewPager: ViewPager
     private lateinit var bind: ProfileFragmentBinding
-    private val userViewModel by viewModel<UserViewModel>()
+    private val userViewModel: UserViewModel by viewModel()
 
     companion object{
         fun getInstance() = ProfileFragment()
@@ -108,8 +109,10 @@ class ProfileFragment: Fragment() {
         val email = MyFirebaseAuth.db_auth.currentUser!!.email!!
         userViewModel.getUserByEmail(email)
         userViewModel.userLiveData.observe(viewLifecycleOwner, Observer {
-            bind.userEmail.text = it.email
-            bind.myBooksCount.text = if (it.myBooks != null) "${it.myBooks.size} книг" else "0 книг"
+            if (it != null) {
+                bind.userEmail.text = it.email
+                bind.myBooksCount.text = if (it.myBooks != null) "${it.myBooks.size} книг" else "0 книг"
+            }
         })
     }
 }
