@@ -5,12 +5,12 @@
     android:id="@+id/main_constraint"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:padding="4dp">
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/book_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:contentDescription="@string/books_description"
         android:src="@drawable/ic_baseline_menu_book_24"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/book_info_linear_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/book_image"

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
@@ -22,8 +23,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment(), ItemClickListener {
 
-    // This class contain only the instance of ViewModel class;
-    // Ideally fragments should be self contained
 
     lateinit var adapter: NewBookAdapter
     private val bookViewModel: BooksViewModel by viewModel()
@@ -37,8 +36,9 @@ class HomeFragment: Fragment(), ItemClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = HomeFragmentBinding.inflate(inflater)
+        (activity as AppCompatActivity).supportActionBar?.title = "Доступные книги"
         return binding.root
     }
 
@@ -67,7 +67,11 @@ class HomeFragment: Fragment(), ItemClickListener {
     override fun onItemClicked(book: Book) {
         setUpBundle(book)
         val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.nav_host_fragment, BookDescriptionFragment.newInstance())
+        val bundle = Bundle()
+        bundle.putParcelable("book", book)
+        val fragment = BookDescriptionFragment.newInstance()
+        fragment.arguments = bundle
+        transaction?.replace(R.id.nav_host_fragment, fragment)
         transaction?.commit()
     }
 

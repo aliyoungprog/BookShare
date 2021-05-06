@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +26,8 @@ class SettingsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        setHasOptionsMenu(true)
         bind = FragmentSettingsBinding.inflate(inflater)
         return bind.root
     }
@@ -56,5 +58,15 @@ class SettingsFragment : Fragment() {
     override fun onDestroyView() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         super.onDestroyView()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            val transaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.nav_host_fragment, ProfileFragment.getInstance())
+            transaction.commit()
+            return true
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
