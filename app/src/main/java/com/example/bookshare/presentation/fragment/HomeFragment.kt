@@ -1,34 +1,31 @@
 package com.example.bookshare.presentation.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bookshare.R
-import com.example.bookshare.data.repository.BookRepositoryImpl
+import com.example.bookshare.data.repository.UserRepositoryImpl
 import com.example.bookshare.databinding.HomeFragmentBinding
 import com.example.bookshare.domain.entity.Book
 import com.example.bookshare.presentation.adapters.ItemClickListener
 import com.example.bookshare.presentation.adapters.NewBookAdapter
-import com.example.bookshare.presentation.vm.AllBooksViewModel
+import com.example.bookshare.presentation.vm.BooksViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.home_fragment.view.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment(), ItemClickListener {
 
-    // This class contain only the instance of ViewModel class;
-    // Ideally fragments should be self contained
 
     lateinit var adapter: NewBookAdapter
-    private val bookViewModel by viewModel<AllBooksViewModel>()
+    private val bookViewModel: BooksViewModel by viewModel()
     lateinit var binding: HomeFragmentBinding
 
     companion object{
@@ -39,8 +36,9 @@ class HomeFragment: Fragment(), ItemClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = HomeFragmentBinding.inflate(inflater)
+        (activity as AppCompatActivity).supportActionBar?.title = "Доступные книги"
         return binding.root
     }
 
@@ -69,7 +67,11 @@ class HomeFragment: Fragment(), ItemClickListener {
     override fun onItemClicked(book: Book) {
         setUpBundle(book)
         val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.nav_host_fragment, BookDescriptionFragment.newInstance())
+        val bundle = Bundle()
+        bundle.putParcelable("book", book)
+        val fragment = BookDescriptionFragment.newInstance()
+        fragment.arguments = bundle
+        transaction?.replace(R.id.nav_host_fragment, fragment)
         transaction?.commit()
     }
 

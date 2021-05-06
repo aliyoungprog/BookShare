@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.bookshare.R
+import com.example.bookshare.domain.App
 import com.example.bookshare.domain.di.koinModules
 import com.example.bookshare.presentation.fragment.HomeFragment
 import com.example.bookshare.presentation.fragment.ProfileFragment
@@ -22,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.title = (this.getString(R.string.available_books))
-        runKoin()
     }
 
     override fun onStart() {
@@ -55,9 +55,5 @@ class MainActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener true
         }
-    }
-
-    private fun runKoin() = startKoin{
-        modules(koinModules)
     }
 }
