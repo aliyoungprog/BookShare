@@ -35,6 +35,8 @@ class RegistrationActivity : AppCompatActivity(){
 
     private fun register(){
         btnSubmit.setOnClickListener{
+            if (!haveInputsFilled()) return@setOnClickListener
+
             auth()
         }
     }
@@ -50,14 +52,25 @@ class RegistrationActivity : AppCompatActivity(){
     private fun auth(){
         firebaseAuth.db_auth.createUserWithEmailAndPassword(mUserEmail.text.toString(), mUserPassword.text.toString()).addOnCompleteListener{
             if (it.isSuccessful){
-                Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "User is created successfully", Toast.LENGTH_SHORT).show()
                 val email = mUserEmail.text.toString().toLowerCase()
-                val user = User(email = email, instagram_account = mUserInstagramAccount.text.toString(), telegram_account = mUserTelegramAccount.text.toString())
+                val user = User(
+                    email = email,
+                    instagram_account = mUserInstagramAccount.text.toString(),
+                    telegram_account = mUserTelegramAccount.text.toString()
+                )
                 Firebase.firestore.collection("users").document(email).set(user)
                 startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }else{
                 Toast.makeText(this, "Error, ${it.exception}", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun haveInputsFilled(): Boolean {
+        if (mUserEmail.text.isNullOrEmpty() || mUserPassword.text.isNullOrEmpty()) return false
+
+        return true
     }
 }

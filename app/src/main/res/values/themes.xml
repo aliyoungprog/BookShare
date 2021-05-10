@@ -13,7 +13,7 @@
     </style>
     
     <style name="BookShare" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/blue_main</item>
+        <item name="colorPrimary">@color/green_main</item>
         <item name="colorPrimaryDark">@color/blue_main_dark</item>
         <item name="colorSecondary">@color/blue_main_secondary</item>
     </style>
@@ -28,7 +28,7 @@
     </style>
 
     <style name="ToolbarAppearance" parent="Widget.MaterialComponents.Toolbar">
-        <item name="android:background">@color/blue_main</item>
+        <item name="android:background">@color/green_main</item>
     </style>
 
 
