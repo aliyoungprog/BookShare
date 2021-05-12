@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.title = (this.getString(R.string.available_books))
     }
 
     override fun onStart() {
@@ -41,15 +40,12 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.action_home -> {
                     changeFragment(HomeFragment.getInstance())
-                    supportActionBar?.setTitle(this.getString(R.string.available_books))
                 }
                 R.id.add_book -> {
                     changeFragment(AddBookMainFragment.getInstance())
-                    supportActionBar?.setTitle("Добавить книгу")
                 }
                 R.id.action_profile -> {
                     changeFragment(ProfileFragment.getInstance())
-                    supportActionBar?.setTitle(this.getString(R.string.profile))
                 }
             }
             return@setOnNavigationItemSelectedListener true

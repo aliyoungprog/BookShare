@@ -16,6 +16,8 @@
         <item name="colorPrimary">@color/green_main</item>
         <item name="colorPrimaryDark">@color/blue_main_dark</item>
         <item name="colorSecondary">@color/blue_main_secondary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
