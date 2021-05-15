@@ -46,8 +46,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(){
+    private fun login() {
         btnLogin.setOnClickListener {
+            if (!haveInputsFilled()) return@setOnClickListener
+
             firebaseAuth.db_auth.signInWithEmailAndPassword(
                 mUserEmail.text.toString(),
                 mUserPassword.text.toString()
@@ -56,11 +58,18 @@ class LoginActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Logged in successfully", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(applicationContext, MainActivity::class.java))
+                    finish()
                 } else {
                     Toast.makeText(this, "Error, ${it.exception}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private fun haveInputsFilled(): Boolean {
+        if (mUserEmail.text.isNullOrEmpty() || mUserPassword.text.isNullOrEmpty()) return false
+
+        return true
     }
 
     private fun checkFirebase(){

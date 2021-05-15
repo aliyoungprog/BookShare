@@ -5,17 +5,72 @@
     android:id="@+id/main_constraint"
     android:layout_width="match_parent"
     android:layout_height="120dp"
+    android:layout_marginBottom="16dp"
     android:padding="8dp">
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="2dp"
+        android:layout_height="30dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="@id/book_image"
+        app:layout_constraintStart_toStartOf="@id/book_image"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/book_image"
         android:layout_width="75dp"
         android:layout_height="75dp"
+        android:layout_marginStart="16dp"
         android:contentDescription="@string/books_description"
         android:src="@drawable/ic_baseline_menu_book_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/green_main" />
+
+    <LinearLayout
+        android:id="@+id/authot_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@id/book_image"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_reading" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/book_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/green_main"
+                tools:text="By author" />
+
+            <TextView
+                android:id="@+id/book_sender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:includeFontPadding="false"
+                tools:text="By user" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/book_info_linear_layout"
@@ -25,15 +80,16 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/book_image"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/authot_ll">
+
 
         <TextView
             android:id="@+id/book_name"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#424B54"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             tools:text="Book name" />
 
         <TextView
@@ -41,30 +97,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:visibility="gone"
             tools:text="Genre" />
 
-        <TextView
-            android:id="@+id/book_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:includeFontPadding="false"
-            tools:text="By author" />
 
-        <TextView
-            android:id="@+id/book_sender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:includeFontPadding="false"
-            tools:text="By user" />
     </LinearLayout>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:id="@+id/view2"
+        android:layout_width="2dp"
+        android:layout_height="30dp"
         android:background="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_constraint" />
+        app:layout_constraintEnd_toEndOf="@id/book_image"
+        app:layout_constraintStart_toStartOf="@id/book_image"
+        app:layout_constraintTop_toBottomOf="@+id/book_image" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
