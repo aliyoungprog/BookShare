@@ -36,7 +36,6 @@ class RegistrationActivity : AppCompatActivity(){
     private fun register(){
         btnSubmit.setOnClickListener{
             if (!haveInputsFilled()) return@setOnClickListener
-
             auth()
         }
     }
@@ -69,7 +68,18 @@ class RegistrationActivity : AppCompatActivity(){
     }
 
     private fun haveInputsFilled(): Boolean {
-        if (mUserEmail.text.isNullOrEmpty() || mUserPassword.text.isNullOrEmpty()) return false
+        if (mUserEmail.text.isNullOrEmpty() || mUserPassword.text.isNullOrEmpty())
+            return false
+
+        if (mUserTelegramAccount.text.isNullOrEmpty()){
+            Toast.makeText(this, "Пожалуйста, добавьте телеграм аккаунт :)", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (mUserInstagramAccount.text.isNullOrEmpty()){
+            Toast.makeText(this, "Пожалуйста, добавьте инстаграм аккаунт :)", Toast.LENGTH_SHORT).show()
+            return false
+        }
 
         return true
     }

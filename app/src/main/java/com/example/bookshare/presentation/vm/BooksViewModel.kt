@@ -12,6 +12,7 @@ import com.example.bookshare.domain.entity.Book
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import java.util.*
 
 
@@ -35,14 +36,12 @@ class BooksViewModel(val repository: BookRepository): ViewModel() {
 
     fun insertBookToAll(context: Context?, book: Book, id: UUID){
         viewModelScope.launch {
-            //Log.d("coroutine", "viewModelScope")
             repository.addBookToAll(context, book, id)
         }
     }
 
     fun insertBookToUser(book: Book){
         viewModelScope.launch {
-            //Log.d("coroutine", "viewModelScope1")
             repository.addBookToUser(book, book.sender!!)
         }
     }
@@ -50,6 +49,7 @@ class BooksViewModel(val repository: BookRepository): ViewModel() {
     fun getAllUserBooks(email: String){
         viewModelScope.launch {
             repository.getAllUserBooks(email){
+                Timber.tag("books amount").i("{$it.size}")
                 allUserBook.value = it
             }
         }

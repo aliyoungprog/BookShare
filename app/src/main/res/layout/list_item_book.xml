@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view1"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/green_main" />
+        />
 
     <LinearLayout
         android:id="@+id/authot_ll"
