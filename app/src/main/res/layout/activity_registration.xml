@@ -64,8 +64,7 @@
                 android:drawableStart="@drawable/ic_telegram"
                 android:drawablePadding="16dp"
                 android:drawableTint="@color/green_main"
-                android:hint="@string/telegram_account"
-                android:inputType="textPassword"
+                android:hint="@string/user_telega"
                 android:maxLines="1"
                 android:textSize="18sp" />
 
@@ -78,8 +77,7 @@
                 android:drawableStart="@drawable/ic_free_icon_instagram_1384089"
                 android:drawableTint="@color/green_main"
                 android:drawablePadding="16dp"
-                android:hint="@string/user_instagram"
-                android:inputType="textPassword"
+                android:hint="@string/user_insta"
                 android:maxLines="1"
                 android:textSize="18sp" />
 

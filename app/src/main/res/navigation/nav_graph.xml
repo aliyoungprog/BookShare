@@ -1,17 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeFragment"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.bookshare.presentation.fragment.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
         <action
-            android:id="@+id/action_homeFragment_to_placeholder"
-            app:destination="@id/placeholder" />
+            android:id="@+id/action_homeFragment_to_bookDescriptionFragment"
+            app:destination="@id/bookDescriptionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/placeholder"
-        android:label="test" />
+        android:id="@+id/addBookMainFragment"
+        android:name="com.example.bookshare.presentation.fragment.AddBookMainFragment"
+        android:label="AddBookMainFragment"
+        tools:layout="@layout/book_add_fragment"/>
+    <fragment
+        android:id="@+id/bookDescriptionFragment"
+        android:name="com.example.bookshare.presentation.fragment.BookDescriptionFragment"
+        android:label="BookDescriptionFragment"
+        tools:layout="@layout/fragment_book_description"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.bookshare.presentation.fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment"/>
+    <fragment
+        android:id="@+id/myBooksFragment"
+        android:name="com.example.bookshare.presentation.fragment.book_view.MyBooksFragment"
+        android:label="MyBooksFragment"
+        tools:layout="@layout/read_books_fragment">
+        <action
+            android:id="@+id/action_myBooksFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wantToReadBooksFragment"
+        android:name="com.example.bookshare.presentation.fragment.book_view.WantToReadBooksFragment"
+        android:label="WantToReadBooksFragment"
+        tools:layout="@layout/want_to_books_fragment">
+        <action
+            android:id="@+id/action_wantToReadBooksFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.bookshare.presentation.fragment.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

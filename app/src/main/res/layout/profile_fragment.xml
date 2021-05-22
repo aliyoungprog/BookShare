@@ -38,14 +38,33 @@
                     android:src="@drawable/ic_baseline_person_24" />
             </androidx.cardview.widget.CardView>
 
+<!--            <TextView-->
+<!--                android:id="@+id/user_email"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                tools:text="@string/user_name"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
+
             <TextView
-                android:id="@+id/user_email"
+                android:id="@+id/user_insta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/user_name"
+                tools:text="@string/user_insta"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/user_telega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="@string/user_telega"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
 
 
             <!--            There should be direct links to social network-->

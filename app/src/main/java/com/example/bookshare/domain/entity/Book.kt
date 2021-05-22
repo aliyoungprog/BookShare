@@ -1,5 +1,7 @@
 package com.example.bookshare.domain.entity
 
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Parcel
 import android.os.Parcelable
 import java.util.*
@@ -11,8 +13,9 @@ data class Book (
     val book_img: String? = null,
     val description: String? = null,
     val genre: String? = null,
-    val sender: String? = null
-) : Parcelable {
+    val sender: String? = null,
+    val book_bitmap: Bitmap? = null
+) : Parcelable{
     constructor(parcel: Parcel) : this(
         TODO("id"),
         parcel.readString(),
@@ -20,7 +23,8 @@ data class Book (
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()
+        parcel.readString(),
+        parcel.readParcelable(Bitmap::class.java.classLoader)
     ) {
     }
 
@@ -31,6 +35,7 @@ data class Book (
         parcel.writeString(description)
         parcel.writeString(genre)
         parcel.writeString(sender)
+        parcel.writeParcelable(book_bitmap, flags)
     }
 
     override fun describeContents(): Int {
@@ -46,4 +51,5 @@ data class Book (
             return arrayOfNulls(size)
         }
     }
+
 }

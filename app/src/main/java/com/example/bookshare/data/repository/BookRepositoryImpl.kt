@@ -11,6 +11,7 @@ import com.example.bookshare.domain.entity.User
 import com.google.firebase.firestore.FieldValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import java.util.*
 
 class BookRepositoryImpl: BookRepository {
@@ -50,8 +51,11 @@ class BookRepositoryImpl: BookRepository {
     override suspend fun getAllUserBooks(email: String, getBooks: (List<Book>) -> Unit) {
         FirestoreDb.db_firestore.collection("users").document(email).get().addOnSuccessListener{
             val list = it.toObject(User::class.java)?.myBooks
+            Timber.tag("size of the list").i("$list")
             if (list != null) {
                 getBooks(list)
+            }else{
+                getBooks(listOf())
             }
         }
     }
