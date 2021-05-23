@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Книжные волны</string>
+    <string name="app_name">КнигоЛюб</string>
     <string name="main">Главная</string>
     <string name="books">Мои книги</string>
     <string name="profile">Профиль</string>
