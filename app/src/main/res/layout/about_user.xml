@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_height="256dp"
+        android:layout_width="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/profile_avatar"
+            android:src="@drawable/ic_baseline_person_24" />
+
+        <TextView
+            android:id="@+id/user_insta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="@string/user_insta"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+<!--        <TextView-->
+<!--            android:id="@+id/user_telega"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            tools:text="@string/user_telega"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

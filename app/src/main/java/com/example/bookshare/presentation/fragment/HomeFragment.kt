@@ -26,7 +26,7 @@ class HomeFragment: Fragment(), ItemClickListener {
 
     lateinit var adapter: NewBookAdapter
     private val bookViewModel: BooksViewModel by viewModel()
-    lateinit var binding: HomeFragmentBinding
+    lateinit var binding: com.example.bookshare.databinding.HomeFragmentBinding
 
     companion object{
         fun getInstance() = HomeFragment()

@@ -112,9 +112,9 @@ class ProfileFragment: Fragment() {
             if (it != null) {
                 //bind.userEmail.text = "Аккаунт: ".plus(it.email)
                 if (it.telegram_account != null)
-                    bind.userInsta.text = "Insta: ".plus(it.instagram_account)
+                    bind.userInsta.text = "@".plus(it.instagram_account)
                 if (it.instagram_account != null)
-                    bind.userTelega.text = "Telega: ".plus(it.telegram_account)
+                    bind.userTelega.text = "@".plus(it.telegram_account)
                 bind.myBooksCount.text = if (it.myBooks != null) "${it.myBooks.size} книг" else "0 книг"
             }
         })

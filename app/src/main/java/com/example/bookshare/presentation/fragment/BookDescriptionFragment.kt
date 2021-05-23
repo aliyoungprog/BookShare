@@ -13,6 +13,7 @@ import androidx.fragment.app.setFragmentResultListener
 import com.example.bookshare.R
 import com.example.bookshare.databinding.FragmentBookDescriptionBinding
 import com.example.bookshare.domain.entity.Book
+import kotlinx.android.synthetic.main.list_item_book.*
 import timber.log.Timber
 
 class BookDescriptionFragment : Fragment() {
@@ -54,6 +55,7 @@ class BookDescriptionFragment : Fragment() {
         bookName.text = book.name
         bookSender.text = book.sender
         bookDesc.text = book.description
+//        book_image.setImageBitmap(book.book_bitmap)
     }
 
     override fun onDestroyView() {

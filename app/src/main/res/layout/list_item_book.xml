@@ -52,6 +52,7 @@
 
             <TextView
                 android:id="@+id/book_author"
+                android:fontFamily="@font/hind_siliguri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -61,6 +62,7 @@
 
             <TextView
                 android:id="@+id/book_sender"
+                android:fontFamily="@font/hind_siliguri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -85,6 +87,7 @@
 
         <TextView
             android:id="@+id/book_name"
+            android:fontFamily="@font/hind_siliguri_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#424B54"
