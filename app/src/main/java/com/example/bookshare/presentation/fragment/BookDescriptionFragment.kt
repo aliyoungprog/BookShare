@@ -73,9 +73,14 @@ class BookDescriptionFragment : Fragment() {
         bookDesc = binding.bookDescriptionDesc
         bookTitle = binding.title
         bookImage = binding.bookDescriptionImg
+        bookTitle.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
 
     private fun downloadImg(book_name: String) {
+        if(activity == null) return
+
         val storage = MyFirebaseStorage.db_storage.getReference(book_name)
         Timber.tag("data").i(storage.getBytes(1024 * 1024).toString())
         storage.getBytes(1024 * 1024).addOnSuccessListener {
