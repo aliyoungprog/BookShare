@@ -72,6 +72,7 @@ class HomeFragment: Fragment(), ItemClickListener {
         val fragment = BookDescriptionFragment.newInstance()
         fragment.arguments = bundle
         transaction?.replace(R.id.nav_host_fragment, fragment)
+        transaction?.addToBackStack(null)
         transaction?.commit()
     }
 

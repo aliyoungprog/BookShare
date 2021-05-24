@@ -39,8 +39,9 @@ class AddBookMainFragment : Fragment() {
     private lateinit var bind: BookAddFragmentBinding
     private lateinit var bookName: TextInputEditText
     private lateinit var bookAuthor: TextInputEditText
+    private lateinit var bookDescription: TextInputEditText
     private lateinit var addBookBtn: Button
-    private lateinit var addImgBtn: Button
+    private lateinit var addImgBtn: ImageView
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var email: String
     private lateinit var bookImg: ImageView
@@ -71,6 +72,7 @@ class AddBookMainFragment : Fragment() {
     private fun setUpUi(){
         bookName = bind.bookName
         bookAuthor = bind.bookAuthor
+        bookDescription = bind.bookDescription
         addBookBtn = bind.addBook
         addImgBtn = bind.addImg
         bookImg = bind.bookImageView
@@ -88,6 +90,10 @@ class AddBookMainFragment : Fragment() {
             Toast.makeText(context, "Пожалуйста, добавьте автора книги :)", Toast.LENGTH_SHORT).show()
             return false
         }
+        if (bookDescription.text.isNullOrEmpty()){
+            Toast.makeText(context, "Пожалуйста, добавьте описание книги :)", Toast.LENGTH_SHORT).show()
+            return false
+        }
         return true
     }
 
@@ -102,6 +108,7 @@ class AddBookMainFragment : Fragment() {
                     val book = Book(
                         name = bookName.text.toString(),
                         author = bookAuthor.text.toString(),
+                        description = bookDescription.text.toString(),
                         sender = email,
                         //book_img = bits.toString()
                     )

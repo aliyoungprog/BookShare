@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.bookshare.presentation.vm.BooksViewModel" />
@@ -13,65 +14,107 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/book_description_img"
+            <TextView
+                android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="194dp"
-                android:src="@drawable/ic_launcher_foreground"
-                android:scaleType="centerCrop"
-                />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:drawablePadding="16dp"
+                android:textColor="@color/green_main"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_arrow_left"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="SomeBook" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:id="@+id/book_description_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Book name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-                <TextView
-                    android:id="@+id/book_description_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Добавил: "
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
+                <ImageView
+                    android:id="@+id/book_description_img"
+                    android:layout_width="120dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="24dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_menu_book_24" />
 
-                <TextView
-                    android:id="@+id/book_description_desc"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Описание"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="Добавить"
-                    />
+                    <TextView
+                        android:id="@+id/book_description_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hind_siliguri_bold"
+                        android:textColor="#424B54"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="Book name" />
+
+                    <TextView
+                        android:id="@+id/book_description_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:includeFontPadding="false"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="@color/green_main"
+                        tools:text="Ali@mail.ru" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_heart" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            app:srcCompat="@drawable/ic_plus" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
             </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/book_description_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/hind_siliguri"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
