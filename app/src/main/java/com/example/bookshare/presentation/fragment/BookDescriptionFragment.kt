@@ -59,7 +59,7 @@ class BookDescriptionFragment : Fragment() {
         book = bundle!!.getParcelable("book")!!
         bookName.text = book.name
         bookSender.text = book.sender
-//        bookDesc.text = book.description
+        bookDesc.text = book.description
         downloadImg(book.name.toString())
     }
 

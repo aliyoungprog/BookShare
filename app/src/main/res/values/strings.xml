@@ -18,6 +18,8 @@
     <string name="instagram_placeholder">Instagram: @Test</string>
     <string name="telegram_placeholder">Telegram: @Test</string>
     <string name="add_book">Добавить</string>
+    <string name="add_book_title">Добавить книгу</string>
+    <string name="add_photo">Добавьте фото, чтобы пользователи могли быстро находить вашу книгу</string>
     <string name="book_image">фото</string>
     <string name="add_book_text">Добавить!</string>
     <string name="add_book_fragment_book_name">Название книги</string>
