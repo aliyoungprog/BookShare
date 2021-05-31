@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.bookshare.presentation.fragment.HomeFragment"
+        android:name="com.aliyoungprog.presentation.fragment.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/home_fragment">
         <action
@@ -15,22 +15,22 @@
     </fragment>
     <fragment
         android:id="@+id/addBookMainFragment"
-        android:name="com.example.bookshare.presentation.fragment.AddBookMainFragment"
+        android:name="com.aliyoungprog.presentation.fragment.AddBookMainFragment"
         android:label="AddBookMainFragment"
         tools:layout="@layout/book_add_fragment"/>
     <fragment
         android:id="@+id/bookDescriptionFragment"
-        android:name="com.example.bookshare.presentation.fragment.BookDescriptionFragment"
+        android:name="com.aliyoungprog.presentation.fragment.BookDescriptionFragment"
         android:label="BookDescriptionFragment"
         tools:layout="@layout/fragment_book_description"/>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.bookshare.presentation.fragment.ProfileFragment"
+        android:name="com.aliyoungprog.presentation.fragment.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/profile_fragment"/>
     <fragment
         android:id="@+id/myBooksFragment"
-        android:name="com.example.bookshare.presentation.fragment.book_view.MyBooksFragment"
+        android:name="com.aliyoungprog.presentation.fragment.book_view.MyBooksFragment"
         android:label="MyBooksFragment"
         tools:layout="@layout/read_books_fragment">
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/wantToReadBooksFragment"
-        android:name="com.example.bookshare.presentation.fragment.book_view.WantToReadBooksFragment"
+        android:name="com.aliyoungprog.presentation.fragment.book_view.WantToReadBooksFragment"
         android:label="WantToReadBooksFragment"
         tools:layout="@layout/want_to_books_fragment">
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.bookshare.presentation.fragment.SettingsFragment"
+        android:name="com.aliyoungprog.presentation.fragment.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings">
         <action

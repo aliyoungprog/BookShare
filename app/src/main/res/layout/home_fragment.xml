@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.bookshare.presentation.vm.BooksViewModel" />
+            type="com.aliyoungprog.presentation.vm.BooksViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.android.bookshare.presentation.fragment.HomeFragment">
+        tools:context=".presentation.fragment.HomeFragment">
 
         <TextView
             android:id="@+id/title"
