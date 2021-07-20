@@ -5,28 +5,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.aliyoungprog.R
 import com.aliyoungprog.databinding.HomeFragmentBinding
 import com.aliyoungprog.domain.entity.Book
 import com.aliyoungprog.presentation.adapters.ItemClickListener
 import com.aliyoungprog.presentation.adapters.NewBookAdapter
 import com.aliyoungprog.presentation.vm.BooksViewModel
+import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.android.synthetic.main.home_fragment.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class HomeFragment: Fragment(), ItemClickListener {
 
 
-    lateinit var adapter: NewBookAdapter
+    var adapter: NewBookAdapter = NewBookAdapter(arrayListOf<Book>(), this, "HOME_FRAGMENT")
+
     private val bookViewModel: BooksViewModel by viewModel()
     lateinit var binding: HomeFragmentBinding
 
-    companion object{
+    companion object {
         fun getInstance() = HomeFragment()
     }
 
@@ -40,28 +44,32 @@ class HomeFragment: Fragment(), ItemClickListener {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.new_books.layoutManager = LinearLayoutManager(context)
+        view.new_books.layoutManager = GridLayoutManager(context, 2)
         setUpViewModel()
         observeBooks()
+        setUpSearchView()
     }
 
 
-    private fun observeBooks(){
-        binding.progressBar.visibility = View.VISIBLE
+    private fun observeBooks() {
+        progressBar.visibility = View.VISIBLE
+        new_books.adapter = adapter
         bookViewModel.booksLiveData.observe(viewLifecycleOwner, Observer { it ->
-            adapter = NewBookAdapter(it, this)
-            binding.newBooks.adapter = adapter
-            binding.progressBar.visibility = View.GONE
+            adapter.books = (it as ArrayList<Book>)
+            adapter.notifyDataSetChanged()
+            progressBar.visibility = View.GONE
         })
     }
 
-    private fun setUpViewModel(){
+    private fun setUpViewModel() {
         binding.viewModel = bookViewModel
         bookViewModel.getAllBooks()
     }
 
+
+    // change to nav graph and pass arguments as safeargs
     override fun onItemClicked(book: Book) {
         setUpBundle(book)
         val transaction = activity?.supportFragmentManager?.beginTransaction()
@@ -74,7 +82,25 @@ class HomeFragment: Fragment(), ItemClickListener {
         transaction?.commit()
     }
 
-    private fun setUpBundle(book: Book){
-        setFragmentResult("getBookName", bundleOf("book_name" to book.name, "book_desc" to book.description))
+    private fun setUpBundle(book: Book) {
+        setFragmentResult(
+            "getBookName",
+            bundleOf("book_name" to book.name, "book_desc" to book.description)
+        )
+    }
+
+    private fun setUpSearchView() {
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                adapter.getFilter().filter(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.getFilter().filter(newText);
+                return true
+            }
+
+        })
     }
 }

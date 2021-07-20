@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.aliyoungprog.data.database.MyFirebaseStorage
 import com.aliyoungprog.databinding.FragmentBookDescriptionBinding
 import com.aliyoungprog.domain.entity.Book
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -78,8 +79,8 @@ class BookDescriptionFragment : Fragment() {
         if(activity == null) return
         CoroutineScope(Dispatchers.IO).launch {
             val storage = MyFirebaseStorage.db_storage.getReference(book_name)
-            Timber.tag("data").i(storage.getBytes(1024 * 1024).toString())
-            storage.getBytes(1024 * 1024).addOnSuccessListener {
+            //Timber.tag("data").i(storage.getBytes(1024 * 1024).toString())
+            storage.getBytes(512 * 512).addOnSuccessListener {
                 val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                 bookImage.setImageBitmap(bitmap)
                 context?.let { it1 ->

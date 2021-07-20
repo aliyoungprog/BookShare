@@ -47,7 +47,6 @@ class BookRepositoryImpl: BookRepository {
     override suspend fun getAllUserBooks(email: String, getBooks: (List<Book>) -> Unit) {
         FirestoreDb.db_firestore.collection("users").document(email).get().addOnSuccessListener{
             val list = it.toObject(User::class.java)?.myBooks
-            Timber.tag("size of the list").i("$list")
             if (list != null) {
                 getBooks(list)
             }else{

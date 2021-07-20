@@ -9,9 +9,6 @@
         android:name="com.aliyoungprog.presentation.fragment.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/home_fragment">
-        <action
-            android:id="@+id/action_homeFragment_to_bookDescriptionFragment"
-            app:destination="@id/bookDescriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/addBookMainFragment"
@@ -33,26 +30,22 @@
         android:name="com.aliyoungprog.presentation.fragment.book_view.MyBooksFragment"
         android:label="MyBooksFragment"
         tools:layout="@layout/read_books_fragment">
-        <action
-            android:id="@+id/action_myBooksFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/wantToReadBooksFragment"
         android:name="com.aliyoungprog.presentation.fragment.book_view.WantToReadBooksFragment"
         android:label="WantToReadBooksFragment"
         tools:layout="@layout/want_to_books_fragment">
-        <action
-            android:id="@+id/action_wantToReadBooksFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.aliyoungprog.presentation.fragment.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings">
-        <action
-            android:id="@+id/action_settingsFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.aliyoungprog.presentation.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
     }
 
     override fun onStart() {
@@ -41,12 +40,10 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         btnLogin.setOnClickListener {
             if (!haveInputsFilled()) return@setOnClickListener
-
             firebaseAuth.db_auth.signInWithEmailAndPassword(
                 mUserEmail.text.toString(),
                 mUserPassword.text.toString()
             ).addOnCompleteListener {
-
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Logged in successfully", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(applicationContext, MainActivity::class.java))
@@ -60,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun haveInputsFilled(): Boolean {
         if (mUserEmail.text.isNullOrEmpty() || mUserPassword.text.isNullOrEmpty()) return false
-
         return true
     }
 

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:id="@+id/action_home"
         android:title="@string/main"
         android:icon="@drawable/home" />
+
+    <item android:id="@+id/HUB"
+        android:title="@string/book_lover_hub"
+        android:icon="@drawable/ic_heart"
+        />
+
     <item android:id="@+id/add_book"
         android:title = "@string/add_book"
         android:icon="@drawable/add" />
+
     <item android:id="@+id/action_profile"
         android:title="@string/profile"
         android:icon="@drawable/user" />

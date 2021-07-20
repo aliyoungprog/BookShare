@@ -12,10 +12,9 @@ import java.util.*
 
 
 class BooksViewModel(val repository: BookRepository): ViewModel() {
-    // Can talk only with repository
 
-    val booksLiveData = MutableLiveData<List<Book>>()
-    val allUserBook = MutableLiveData<List<Book>>()
+    var booksLiveData = MutableLiveData<List<Book>>()
+    var allUserBook = MutableLiveData<List<Book>>()
 
     fun getAllBooks(){
         viewModelScope.launch {
@@ -44,7 +43,6 @@ class BooksViewModel(val repository: BookRepository): ViewModel() {
     fun getAllUserBooks(email: String){
         viewModelScope.launch {
             repository.getAllUserBooks(email){
-                Timber.tag("books amount").i("{$it.size}")
                 allUserBook.value = it
             }
         }

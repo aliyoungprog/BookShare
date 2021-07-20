@@ -11,7 +11,13 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
-    
+
+   <style name="BookShelfHeader">
+       <item name="android:textColor">@color/green_main</item>
+       <item name = "android:textSize">24sp</item>
+       <item name = "android:textStyle">bold</item>
+   </style>
+
     <style name="BookShare" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/green_main</item>
         <item name="colorPrimaryDark">@color/blue_main_dark</item>

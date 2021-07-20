@@ -61,7 +61,6 @@ class AddBookMainFragment : Fragment() {
         super.onCreate(savedInstanceState)
         getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             bookImg.setImageURI(uri)
-            println(uri)
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

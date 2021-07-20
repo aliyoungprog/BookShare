@@ -48,10 +48,8 @@ class MyBooksFragment : Fragment(), ItemClickListener {
 
     private fun observeBooks(){
             bind.progressBar.visibility = View.VISIBLE
-            bookViewModel.allUserBook.observe(
-                viewLifecycleOwner,
-                androidx.lifecycle.Observer { it ->
-                    adapter = NewBookAdapter(it, this)
+            bookViewModel.allUserBook.observe(viewLifecycleOwner, { it ->
+                    adapter = NewBookAdapter(it as ArrayList<Book>, this, "PROFILE_FRAGMENT")
                     bind.myBooks.adapter = adapter
                     bind.progressBar.visibility = View.GONE
                 })
